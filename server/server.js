@@ -1,5 +1,6 @@
 require('./config/config');
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -26,6 +27,12 @@ app.post('/user', (req, res) => {
             person: body
         });
     } 
+});
+
+// Connecting to MongoDB
+mongoose.connect('mongodb://localhost:27017/cafe', {useNewUrlParser: true}, (err, res) => {
+    if (err) throw err;
+    console.log('Database online');    
 });
 
 app.listen(process.env.PORT, () => {
