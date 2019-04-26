@@ -20,8 +20,9 @@ let userSchema = new Schema({
         required: false
     },    
     role: {
+        type: String,
         default: 'USER_ROLE'
-    },   // default: 'USER_ROLE'
+    },   
     state: {
         type: Boolean,
         default: true
